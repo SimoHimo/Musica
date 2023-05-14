@@ -2,7 +2,6 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-
 class MusicPlayer extends StatefulWidget {
   const MusicPlayer({Key? key}) : super(key: key);
 
@@ -100,8 +99,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
                   children: [
                     IconButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, "/Playlist");
-
+                          Navigator.pushNamed(context, "/Track");
                         },
                         icon: Icon(
                           Icons.arrow_back,
@@ -110,10 +108,12 @@ class _MusicPlayerState extends State<MusicPlayer> {
                         )),
                     Center(
                         child: Text(
-                          "Playing Now",
-                          style: TextStyle(
-                              fontSize: 30, color: mate, fontWeight: FontWeight.w300),
-                        )),
+                      "Playing Now",
+                      style: TextStyle(
+                          fontSize: 30,
+                          color: mate,
+                          fontWeight: FontWeight.w300),
+                    )),
                     IconButton(
                       onPressed: () {
                         setState(() {
@@ -122,15 +122,15 @@ class _MusicPlayerState extends State<MusicPlayer> {
                       },
                       icon: _isFavorite
                           ? Icon(
-                        Icons.favorite,
-                        color: Colors.red,
-                        size: height * 0.035,
-                      )
+                              Icons.favorite,
+                              color: Colors.red,
+                              size: height * 0.035,
+                            )
                           : Icon(
-                        Icons.favorite_border,
-                        color: Colors.grey,
-                        size: height * 0.035,
-                      ),
+                              Icons.favorite_border,
+                              color: Colors.grey,
+                              size: height * 0.035,
+                            ),
                     ),
                   ],
                 ),
@@ -180,23 +180,23 @@ class _MusicPlayerState extends State<MusicPlayer> {
                         fit: BoxFit.fill),
                     boxShadow: !_isPlaying
                         ?
-                    // Elevation Effect
-                    [
-                      const BoxShadow(
-                        color: Color(0xFFBEBEBE),
-                        // Shadow for bottom right corner
-                        offset: Offset(10, 10),
-                        blurRadius: 30,
-                        spreadRadius: 1,
-                      ),
-                      const BoxShadow(
-                        color: Colors.white,
-                        // Shadow for top left corner
-                        offset: Offset(-10, -10),
-                        blurRadius: 30,
-                        spreadRadius: 1,
-                      ), // White Shadow
-                    ]
+                        // Elevation Effect
+                        [
+                            const BoxShadow(
+                              color: Color(0xFFBEBEBE),
+                              // Shadow for bottom right corner
+                              offset: Offset(10, 10),
+                              blurRadius: 30,
+                              spreadRadius: 1,
+                            ),
+                            const BoxShadow(
+                              color: Colors.white,
+                              // Shadow for top left corner
+                              offset: Offset(-10, -10),
+                              blurRadius: 30,
+                              spreadRadius: 1,
+                            ), // White Shadow
+                          ]
                         : [const BoxShadow(color: Colors.grey)],
                     color: mate,
                     borderRadius: const BorderRadius.all(Radius.circular(35))),
@@ -227,11 +227,13 @@ class _MusicPlayerState extends State<MusicPlayer> {
                   children: [
                     Text(
                       formatTime(position),
-                      style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
                     ),
                     Text(
                       formatTime(duration - position),
-                      style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
                     ),
                   ],
                 ),
@@ -267,7 +269,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
                   GestureDetector(
                     onTap: () {
                       playpause();
-                          () async {
+                      () async {
                         if (_isPlaying) {
                           await audioPlayer.pause();
                         } else {
@@ -299,23 +301,23 @@ class _MusicPlayerState extends State<MusicPlayer> {
                         boxShadow: _isPlaying
                             ? [const BoxShadow(color: Colors.grey)]
                             :
-                        // Elevation Effect
-                        [
-                          const BoxShadow(
-                            color: Color(0xFFBEBEBE),
-                            // Shadow for bottom right corner
-                            offset: Offset(10, 10),
-                            blurRadius: 30,
-                            spreadRadius: 1,
-                          ),
-                          const BoxShadow(
-                            color: Colors.white,
-                            // Shadow for top left corner
-                            offset: Offset(-10, -10),
-                            blurRadius: 30,
-                            spreadRadius: 1,
-                          ),
-                        ],
+                            // Elevation Effect
+                            [
+                                const BoxShadow(
+                                  color: Color(0xFFBEBEBE),
+                                  // Shadow for bottom right corner
+                                  offset: Offset(10, 10),
+                                  blurRadius: 30,
+                                  spreadRadius: 1,
+                                ),
+                                const BoxShadow(
+                                  color: Colors.white,
+                                  // Shadow for top left corner
+                                  offset: Offset(-10, -10),
+                                  blurRadius: 30,
+                                  spreadRadius: 1,
+                                ),
+                              ],
                       ),
                     ),
                   ),

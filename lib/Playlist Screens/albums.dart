@@ -8,6 +8,7 @@ class Albums extends StatefulWidget {
 }
 
 class _AlbumsState extends State<Albums> {
+
   @override
   Widget build(BuildContext context) {
     return Container(

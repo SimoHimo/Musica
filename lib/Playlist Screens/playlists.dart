@@ -14,8 +14,8 @@ class Playlists extends StatefulWidget {
 class _PlaylistsState extends State<Playlists> {
   /// List of Tab Bar Item
   List<String>items =[
-    "Track",
     "Playlist",
+    "Track",
     "Folder",
     "Artist",
     "Album"
@@ -102,14 +102,6 @@ class _PlaylistsState extends State<Playlists> {
                     );
                   }),
             ),
-
-
-
-
-
-
-
-
 
 
             /// MAIN BODY
