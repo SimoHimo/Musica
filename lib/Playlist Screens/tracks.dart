@@ -42,6 +42,7 @@ class _TracksState extends State<Tracks> with TickerProviderStateMixin{
         title: Text(
           "musica",
           style: GoogleFonts.lato(
+            color: Colors.white,
               fontWeight: FontWeight.w900,
               fontSize: 45
           ),
@@ -144,9 +145,9 @@ class _TracksState extends State<Tracks> with TickerProviderStateMixin{
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
-                                            Text("Wish You Were Here",style:TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: textColor),),
+                                            Text("Wish You Were Here",style:TextStyle(fontWeight: FontWeight.bold,fontSize:18,color: textColor),),
                                             Text("Pink Floyd",style:TextStyle(fontWeight: FontWeight.w400,fontSize: 15,color: textColor),),
-                                            Text("3:45",style:TextStyle(fontWeight: FontWeight.w400,fontSize: 15,color: textColor),),
+                                            Text("3:45",style:TextStyle(fontWeight: FontWeight.w400,fontSize: 14,color: textColor),),
                                           ],),),
                                       IconButton(onPressed: (){}, icon:  Icon(Icons.more_vert,size: 30,))
                                     ],
@@ -161,7 +162,7 @@ class _TracksState extends State<Tracks> with TickerProviderStateMixin{
                 Container(
                   child: ListView.builder(
                       shrinkWrap: true,
-                      itemCount: 5,
+                      itemCount: 15,
                       itemBuilder: (BuildContext context, int index) {
                         return Column(
                           mainAxisAlignment: MainAxisAlignment.center,

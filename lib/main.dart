@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Musica",
       darkTheme: ThemeData(),
       theme: ThemeData(primaryColor: Colors.deepPurpleAccent),
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
 
 
       },
-      initialRoute: "/MusicPlayer",
+      initialRoute: "/Track",
 
     );
   }

@@ -56,16 +56,6 @@ class _PlaylistsState extends State<Playlists> {
         child: Column(
           children: [
 
-
-
-
-
-
-
-
-
-
-
             /// CUSTOM TABBAR
             SizedBox(
               width: double.infinity,
@@ -150,7 +140,7 @@ class _PlaylistsState extends State<Playlists> {
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
-                                          Text("Wish You Were Here",style:TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: textColor),),
+                                          Text("Wish You Were Here",style:TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color: textColor),),
                                           Text("Pink Floyd",style:TextStyle(fontWeight: FontWeight.w400,fontSize: 15,color: textColor),),
                                           Text("3:45",style:TextStyle(fontWeight: FontWeight.w400,fontSize: 15,color: textColor),),
                                         ],),),
