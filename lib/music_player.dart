@@ -15,7 +15,7 @@ class MusicPlayer extends StatefulWidget {
 class _MusicPlayerState extends State<MusicPlayer> {
   bool _isPlaying = false;
   bool _isSuffled = false;
-  bool _looped = false;
+  bool _isLooped = false;
   bool _isFavorite = false;
 
   final audioPlayer = AudioPlayer();
@@ -158,7 +158,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          name.split('.')[0],
+                          name.split('-',)[1],
                           style: TextStyle(
                             overflow: TextOverflow.ellipsis,
                             fontSize: 30,
@@ -167,7 +167,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
                           ),
                         ),
                         Text(
-                          name.split('.')[1],
+                          name.split('-')[0],
                           style: TextStyle(
                             overflow: TextOverflow.ellipsis,
                             fontSize: 22,
@@ -262,6 +262,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
                     IconButton(
                       onPressed: () {
                         setState(() {
+                          _isLooped = false;
                           audioPlayer.setReleaseMode(ReleaseMode.loop);
                           _isSuffled = !_isSuffled;
                         });
@@ -343,12 +344,13 @@ class _MusicPlayerState extends State<MusicPlayer> {
                     IconButton(
                       onPressed: () {
                         setState(() {
-                          _looped = !_looped;
+                          _isSuffled = false;
+                          _isLooped = !_isLooped;
                         });
                       },
                       icon: Icon(
                         Icons.loop,
-                        color: _looped ? Colors.blue : Colors.grey,
+                        color: _isLooped ? Colors.blue : Colors.grey,
                         size: height * 0.035,
                       ),
                     ),
