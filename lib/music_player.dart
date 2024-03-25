@@ -25,7 +25,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
   String name = '';
 
   Future setAudio() async {
-    audioPlayer.setReleaseMode(ReleaseMode.stop);
+
 
     final result = await FilePicker.platform.pickFiles();
 
@@ -36,6 +36,8 @@ class _MusicPlayerState extends State<MusicPlayer> {
       audioPlayer.setSourceDeviceFile(
         file.path,
       );
+      audioPlayer.resume();
+
     }
 
     // String url = 'https://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Sevish_-__nbsp_.mp3';
@@ -100,6 +102,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              ///Appbar
               SizedBox(
                 height: height * 0.1,
                 width: width * 0.9,
@@ -145,28 +148,26 @@ class _MusicPlayerState extends State<MusicPlayer> {
                   ],
                 ),
               ),
-              SizedBox(
-                height: height * 0.01,
-              ),
-              SizedBox(
-                height: height * 0.075,
-                width: width,
+
+
+              Padding(
+                padding: const EdgeInsets.fromLTRB(30, 15, 30, 40),
                 child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          name.split('-',)[1],
-                          style: TextStyle(
-                            overflow: TextOverflow.ellipsis,
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                            color: mate,
-                          ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        name.split('-',)[1],
+                        style: TextStyle(
+                          overflow: TextOverflow.ellipsis,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: mate,
                         ),
-                        Text(
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 30),
+                        child: Text(
                           name.split('-')[0],
                           style: TextStyle(
                             overflow: TextOverflow.ellipsis,
@@ -174,15 +175,14 @@ class _MusicPlayerState extends State<MusicPlayer> {
                             fontWeight: FontWeight.w300,
                             color: mate,
                           ),
-                        )
-                      ],
-                    ),
+                        ),
+                      )
+                    ],
                   ),
                 ),
               ),
-              SizedBox(
-                height: height * 0.045,
-              ),
+
+              // Image
               AnimatedContainer(
                 duration: const Duration(
                   milliseconds: 200,
@@ -244,7 +244,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
                           const TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
                     ),
                     Text(
-                      formatTime(duration - position),
+                      formatTime(duration),
                       style:
                           const TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
                     ),
@@ -261,9 +261,9 @@ class _MusicPlayerState extends State<MusicPlayer> {
 
                     IconButton(
                       onPressed: () {
+                        audioPlayer.setReleaseMode(ReleaseMode.stop);
                         setState(() {
                           _isLooped = false;
-                          audioPlayer.setReleaseMode(ReleaseMode.loop);
                           _isSuffled = !_isSuffled;
                         });
                       },
@@ -343,7 +343,9 @@ class _MusicPlayerState extends State<MusicPlayer> {
                     ),
                     IconButton(
                       onPressed: () {
+                        _isLooped ? audioPlayer.setReleaseMode(ReleaseMode.loop):audioPlayer.setReleaseMode(ReleaseMode.release);
                         setState(() {
+
                           _isSuffled = false;
                           _isLooped = !_isLooped;
                         });
